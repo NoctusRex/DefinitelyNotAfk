@@ -53,15 +53,27 @@ namespace DefinitelyNotAfk
 
         #region "Events"
 
-        private void MainForm_Shown(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             AskForStartupPath();
+        }
 
+        private void MainForm_Shown(object sender, EventArgs e)
+        {
             Hide();
         }
 
-        private void AfkTimer_Tick(object sender, EventArgs e) => SendKeys.Send("{NUMLOCK}");
-
+        private void AfkTimer_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                SendKeys.Send("{NUMLOCK}");
+            }
+            catch (Exception)
+            {
+                // Trust me. I am an engineer.
+            }
+        }
         private void MainForm_Resize(object sender, EventArgs e)
         {
             if (WindowState != FormWindowState.Minimized) return;
