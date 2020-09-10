@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using WindowsInput;
 
 namespace DefinitelyNotAfk
 {
@@ -67,7 +68,9 @@ namespace DefinitelyNotAfk
         {
             try
             {
-                SendKeys.Send("{NUMLOCK}");
+                InputSimulator input = new InputSimulator();
+                input.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.NUMLOCK).Sleep(10);
+                input.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.NUMLOCK);
             }
             catch (Exception)
             {

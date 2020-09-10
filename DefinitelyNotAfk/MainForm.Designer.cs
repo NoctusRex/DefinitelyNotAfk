@@ -37,7 +37,7 @@
             // AfkTimer
             // 
             this.AfkTimer.Enabled = true;
-            this.AfkTimer.Interval = 3000;
+            this.AfkTimer.Interval = 10000;
             this.AfkTimer.Tick += new System.EventHandler(this.AfkTimer_Tick);
             // 
             // AfkNotifyIcon
